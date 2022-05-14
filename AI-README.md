@@ -1,6 +1,9 @@
+---
 layout: page
 title: AI Readme
-permalink: https://silverrat.github.io/AI/
+permalink: /AI/
+---
+
 <link href="lib/public/global-training.css" rel="stylesheet"></link>
 
 # Start your environment by clicking **Start Lab** above. 
