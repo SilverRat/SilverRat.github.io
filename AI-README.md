@@ -35,7 +35,7 @@ When the Fusion Login page displays, login:
 <p id="copy">def transform(inputDF: Dataset[Row]) : Dataset[Row] = {
 inputDF.filter("department IN ('ACCESSORIES', 'APPLIANCE', 'COMPUTERS')")
 }</p>
-</pre></code>
+</code></pre>
 <button type="button" onclick="copyEvent('copy')" style="background-color:#C52574;  border: none;
   color: white;
   padding: 5px 16px;
