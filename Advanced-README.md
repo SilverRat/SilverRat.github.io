@@ -1,3 +1,9 @@
+---
+layout: page
+title: Advanced Readme
+permalink: /Advanced/
+---
+
 <link rel="stylesheet" href="lib/public/global-training.css">
 
 # Start your environment by clicking **Start Lab** above. 

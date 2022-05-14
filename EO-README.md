@@ -1,3 +1,9 @@
+---
+layout: page
+title: EO Readme
+permalink: /EO/
+---
+
 <link href="lib/public/global-training.css" rel="stylesheet"></link>
 
 # Start your environment by clicking **Start Lab** above. 
