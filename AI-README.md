@@ -18,7 +18,7 @@ When the Fusion Login page displays, login:
    
 2. Click on your newly created app to enter the *Fusion workspace*, this is where you can use the PBL jobs to populate data and signals in the collections
 
- # Ingest and Transform your Data
+   # Ingest and Transform your Data
 
 3. Hover over the **COLLECTIONS** icon in the sidebar, then click **Jobs**
    
@@ -31,28 +31,28 @@ When the Fusion Login page displays, login:
     * Change the **Output Collection** to ``Labs``
     * Copy the **Transform Scala** below and paste it into the **Transform Scala** text box
 
-<pre><code>
-<p id="copy">def transform(inputDF: Dataset[Row]) : Dataset[Row] = {
-inputDF.filter("department IN ('ACCESSORIES', 'APPLIANCE', 'COMPUTERS')")
-}</p>
-</code></pre>
-<button type="button" onclick="copyEvent('copy')" style="background-color:#C52574;  border: none;
-  color: white;
-  padding: 5px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;">Copy</button>
+   <pre><code>
+   <p id="copy">def transform(inputDF: Dataset[Row]) : Dataset[Row] = {
+   inputDF.filter("department IN ('ACCESSORIES', 'APPLIANCE', 'COMPUTERS')")
+   }</p>
+   </code></pre>
+   <button type="button" onclick="copyEvent('copy')" style="background-color:#C52574;  border: none;
+     color: white;
+     padding: 5px 16px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 16px;">Copy</button>
 
-<script>
-    function copyEvent(id)
-    {
-        var str = document.getElementById(id);
-        window.getSelection().selectAllChildren(str);
-        document.execCommand("Copy")
-    }
-</script> 
-<br>
+   <script>
+       function copyEvent(id)
+       {
+           var str = document.getElementById(id);
+           window.getSelection().selectAllChildren(str);
+           document.execCommand("Copy")
+       }
+   </script> 
+   <br>
 
 6. Close the **Transform Scala** text box. Click **Save**, then click **Run**, then click **Start**
 
