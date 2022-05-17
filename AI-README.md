@@ -56,7 +56,7 @@ When the Fusion Login page displays, login:
 
 6. Close the **Transform Scala** text box. Click **Save**, then click **Run**, then click **Start**
 
->Note: Success! The job will take up to three minutes, when it's done, the "running" icon will change to a "sunshine". 
+   >Note: Success! The job will take up to three minutes, when it's done, the "running" icon will change to a "sunshine". 
 
 7. Click **Save**
 
@@ -69,50 +69,50 @@ When the Fusion Login page displays, login:
     * Change the **Output Collection** to ``Labs_signals``
     * Copy the **Transform Scala** below
 
-<pre><code>
-<p id="copy2">import java.sql.Timestamp
-def transform(allClicks: Dataset[Row]) : Dataset[Row] = {
-val ecommerceFullCatalog = spark.read.parquet("gs://training-ecommerce/catalog")
-val someHardGoods = ecommerceFullCatalog.filter("department IN ('ACCESSORIES', 'APPLIANCE', 'COMPUTERS')")
-val trimmedClicks = allClicks.select("query","doc_id","fusion_query_id","filters_s","type", "count_i","timestamp_tdt","user_id","id")
-val hardGoodClicks = trimmedClicks.alias("TC").join(someHardGoods.withColumnRenamed("id", "doc_id"), Seq("doc_id")).select("TC.*", "name", "longDescription", "department")
-val userClickCounts = hardGoodClicks.groupBy("user_id").count.withColumnRenamed("count", "user_count")
-val itemClickCounts = hardGoodClicks.groupBy("doc_id").count.withColumnRenamed("count", "item_count")
-val clicksWithCounts = hardGoodClicks.join(userClickCounts, Seq("user_id")).join(itemClickCounts, Seq("doc_id"))
-val usefulClicks = clicksWithCounts.filter("user_count > 2 AND item_count > 4").drop("user_count","item_count")
-val now = System.currentTimeMillis()
-val maxDate = usefulClicks.agg(max("timestamp_tdt")).take(1)(0).getAs[Timestamp](0).getTime
-val diff = now - maxDate
-val addTime = udf((t: Timestamp, diff : Long) => new Timestamp(t.getTime + diff))
-val newDF = usefulClicks
-.withColumnRenamed("timestamp_tdt", "orig_timestamp_tdt")
-.withColumn("timestamp_tdt", addTime($"orig_timestamp_tdt", lit(diff)))
-newDF
-}</p>
-</pre></code>
-<button type="button" onclick="copyEvent('copy2')" style="background-color:#C52574;  border: none;
-  color: white;
-  padding: 5px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;">Copy</button>
+   <pre><code>
+   <p id="copy2">import java.sql.Timestamp
+   def transform(allClicks: Dataset[Row]) : Dataset[Row] = {
+   val ecommerceFullCatalog = spark.read.parquet("gs://training-ecommerce/catalog")
+   val someHardGoods = ecommerceFullCatalog.filter("department IN ('ACCESSORIES', 'APPLIANCE', 'COMPUTERS')")
+   val trimmedClicks = allClicks.select("query","doc_id","fusion_query_id","filters_s","type", "count_i","timestamp_tdt","user_id","id")
+   val hardGoodClicks = trimmedClicks.alias("TC").join(someHardGoods.withColumnRenamed("id", "doc_id"), Seq("doc_id")).select("TC.*", "name", "longDescription", "department")
+   val userClickCounts = hardGoodClicks.groupBy("user_id").count.withColumnRenamed("count", "user_count")
+   val itemClickCounts = hardGoodClicks.groupBy("doc_id").count.withColumnRenamed("count", "item_count")
+   val clicksWithCounts = hardGoodClicks.join(userClickCounts, Seq("user_id")).join(itemClickCounts, Seq("doc_id"))
+   val usefulClicks = clicksWithCounts.filter("user_count > 2 AND item_count > 4").drop("user_count","item_count")
+   val now = System.currentTimeMillis()
+   val maxDate = usefulClicks.agg(max("timestamp_tdt")).take(1)(0).getAs[Timestamp](0).getTime
+   val diff = now - maxDate
+   val addTime = udf((t: Timestamp, diff : Long) => new Timestamp(t.getTime + diff))
+   val newDF = usefulClicks
+   .withColumnRenamed("timestamp_tdt", "orig_timestamp_tdt")
+   .withColumn("timestamp_tdt", addTime($"orig_timestamp_tdt", lit(diff)))
+   newDF
+   }</p>
+   </pre></code>
+   <button type="button" onclick="copyEvent('copy2')" style="background-color:#C52574;  border: none;
+     color: white;
+     padding: 5px 16px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 16px;">Copy</button>
 
-<script>
-    function copyEvent(id)
-    {
-        var str = document.getElementById(id);
-        window.getSelection().selectAllChildren(str);
-        document.execCommand("Copy")
-    }
-</script> 
-<br>
+   <script>
+       function copyEvent(id)
+       {
+           var str = document.getElementById(id);
+           window.getSelection().selectAllChildren(str);
+           document.execCommand("Copy")
+       }
+   </script> 
+   <br>
         
 10. Close the **Transform Scala** text box. Click **Save**, then click **Run**, then click **Start**
 
->Note: Success! The job will take about up to three minutes, when it's done, the "running" icon will change to a "sunshine". If your job fails, be sure to check your parameters with the configurations above and run the job again. 
+   >Note: Success! The job will take about up to three minutes, when it's done, the "running" icon will change to a "sunshine". If your job fails, be sure to check your parameters with the configurations above and run the job again. 
 
-# Verify Successful Data Load
+   # Verify Successful Data Load
 
 11. Hover over **QUERYING**, click on **Query Workbench**
    
@@ -126,12 +126,12 @@ newDF
 
 14. Click **Save**
 
->Note: If prompted, save over the existing Labs pipeline. 
+   >Note: If prompted, save over the existing Labs pipeline. 
 
 15. Click the **Collections** dropdown and select **Labs_signals**
 
-<img src="https://storage.googleapis.com/fusion-datasets/5.4_Markdown_images/03%20AI/Lab%201%20Collections.png" style="height: 250px; width:32
-0px;"/>
+   <img src="https://storage.googleapis.com/fusion-datasets/5.4_Markdown_images/03%20AI/Lab%201%20Collections.png" style="height: 250px; width:32
+   0px;"/>
 
 
 16. Hover over **QUERYING**, click on **Query Workbench**
@@ -142,22 +142,22 @@ newDF
 
 19. Click **Save**. Confirm that you will save over the existing pipeline.
 
->Note: Note that these signals contain all the data from the associated catalog item.  This is NOT a recommended design for production, as the signals index would be very large.  However, this can be very useful for our examples, as the click data is easier for us to read and comprehend.
+   >Note: Note that these signals contain all the data from the associated catalog item.  This is NOT a recommended design for production, as the signals index would be very large.  However, this can be very useful for our examples, as the click data is easier for us to read and comprehend.
 
 20. Make sure to scroll through all of your open Fusion tabs and **Save** each!
 
-________
-Great job! You now have a functioning Fusion app with data from utilizing the Parallel Bulk Loader! If you would like to save your Fusion App to reference later, you can do it now:
-1. Return to the Fusion Launcher
-2. Hover over your app and click on the cog that appears in the lower right corner
-3. Within the box that opens, click **Export app to zip**
+   ________
+   Great job! You now have a functioning Fusion app with data from utilizing the Parallel Bulk Loader! If you would like to save your Fusion App to reference later, you can do it now:
+   1. Return to the Fusion Launcher
+   2. Hover over your app and click on the cog that appears in the lower right corner
+   3. Within the box that opens, click **Export app to zip**
 
-This concludes the PBL Lab.
-
-
+   This concludes the PBL Lab.
 
 
-<link href="lib/public/global-training.css" rel="stylesheet"></link>
+
+
+<link href="../lib/public/global-training.css" rel="stylesheet"></link>
 
 # Start your environment by clicking **Start Lab** above. 
 
@@ -171,26 +171,26 @@ When the Fusion Login page displays, login:
 
 1. Click on the app **Labs** to enter the *Fusion workspace*, this is where you can build and test the classifier model
 
-# Inspecting the Collection
+   # Inspecting the Collection
 
 2. Click the **Collections** dropdown in the top left navigation header and select **Labs_signals**
 
 3. Hover over the **QUERYING** icon in the sidebar, then click **Query Workbench**
 
->Note: In this lab, we will build a classifier that predicts which store department a user is interested in based on their input query. This involves finding correlations between certain query terms and the store department the user ultimately clicks into.
-   
+   >Note: In this lab, we will build a classifier that predicts which store department a user is interested in based on their input query. This involves finding correlations between certain query terms and the store department the user ultimately clicks into.
+
 4. Excecute the `query:"washer dryer combo"`
 
->Note: Everyone who searched for “washer dryer combo” also clicked on an item from the APPLIANCE department.  Not every query is this clear-cut.
+   >Note: Everyone who searched for “washer dryer combo” also clicked on an item from the APPLIANCE department.  Not every query is this clear-cut.
 
-<img src="https://storage.googleapis.com/fusion-datasets/5.4_Markdown_images/03%20AI/Lab%202%20Query%20example.png" style="height: 200px; width:250px;"/>
+   <img src="https://storage.googleapis.com/fusion-datasets/5.4_Markdown_images/03%20AI/Lab%202%20Query%20example.png" style="height: 200px; width:250px;"/>
 
 
 5. Execute the query `query:charger`
 
->Note: These results are ambiguous,  however there is still a clear trend towards ACCESSORIES. These patterns can be captured and learned by a Classifier; then used to influence relevancy at query time.
+   >Note: These results are ambiguous,  however there is still a clear trend towards ACCESSORIES. These patterns can be captured and learned by a Classifier; then used to influence relevancy at query time.
 
-# Training a Classifier Model
+   # Training a Classifier Model
 
 6. Hover over the **COLLECTIONS** icon in the sidebar, then click **Jobs**
 
