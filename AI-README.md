@@ -110,7 +110,7 @@ When the Fusion Login page displays, login:
         
 10. Close the **Transform Scala** text box. Click **Save**, then click **Run**, then click **Start**
 
-   >Note: Success! The job will take about up to three minutes, when it's done, the "running" icon will change to a "sunshine". If your job fails, be sure to check your parameters with the configurations above and run the job again. 
+    >Note: Success! The job will take about up to three minutes, when it's done, the "running" icon will change to a "sunshine". If your job fails, be sure to check your parameters with the configurations above and run the job again. 
 
    # Verify Successful Data Load
 
@@ -142,7 +142,7 @@ When the Fusion Login page displays, login:
 
 19. Click **Save**. Confirm that you will save over the existing pipeline.
 
-   >Note: Note that these signals contain all the data from the associated catalog item.  This is NOT a recommended design for production, as the signals index would be very large.  However, this can be very useful for our examples, as the click data is easier for us to read and comprehend.
+    >Note: Note that these signals contain all the data from the associated catalog item.  This is NOT a recommended design for production, as the signals index would be very large.  However, this can be very useful for our examples, as the click data is easier for us to read and comprehend.
 
 20. Make sure to scroll through all of your open Fusion tabs and **Save** each!
 
