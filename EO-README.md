@@ -172,7 +172,7 @@ ____
 
 >Congratulations! You have completed the walkthrough of Exploring the Optimizer Dashboard. Click 'Next' in the lower right corner to continue through the course.
 
-<link href="lib/public/global-training.css" rel="stylesheet"></link>
+<link href="../lib/public/global-training.css" rel="stylesheet"></link>
 
 # Start your environment by clicking **Start Lab** above. 
 
