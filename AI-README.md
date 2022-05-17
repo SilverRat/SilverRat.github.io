@@ -18,7 +18,7 @@ When the Fusion Login page displays, login:
    
 2. Click on your newly created app to enter the *Fusion workspace*, this is where you can use the PBL jobs to populate data and signals in the collections
 
-# Ingest and Transform your Data
+ # Ingest and Transform your Data
 
 3. Hover over the **COLLECTIONS** icon in the sidebar, then click **Jobs**
    
