@@ -120,7 +120,7 @@ When the Fusion Login page displays, login:
 * **Name** field to ``name`` 
 * **Description** field to ``longDescription``
 
-<img src="https://storage.googleapis.com/fusion-datasets/5.4_Markdown_images/03%20AI/Lab%201%20Display%20Fields.png" style="height: 250px; width:320px;"/>
+   <img src="https://storage.googleapis.com/fusion-datasets/5.4_Markdown_images/03%20AI/Lab%201%20Display%20Fields.png" style="height: 250px; width:320px;"/>
 
 13. Click **Add a field facet** and choose **department**
 
