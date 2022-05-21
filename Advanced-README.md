@@ -551,7 +551,7 @@ If you would like to save your Fusion App to reference later, you can do it now:
 
 
 
-<link rel="stylesheet" href="lib/public/global-training.css">
+<link rel="stylesheet" href="../lib/public/global-training.css">
 
 # Start your environment by clicking **Start Lab** above. 
 

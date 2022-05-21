@@ -4,6 +4,8 @@ title: PM Readme
 permalink: /PM/
 ---
 
+<link href="../lib/public/global-training.css" rel="stylesheet"></link>
+
 # Start your environment by clicking **Start Lab** above. 
 
 ## The environment should begin to load immediately as indicated by the Vocareum loading symbol. Please do not click *Start Lab* again. It may take a few mintues for the Fusion environment to fully display.

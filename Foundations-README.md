@@ -143,7 +143,7 @@ This concludes the Ingestion Lab.
 
 
 
-<link href="lib/public/global-training.css" rel="stylesheet"></link>
+<link href="../lib/public/global-training.css" rel="stylesheet"></link>
 
 # Start your environment by clicking **Start Lab** above. 
 
